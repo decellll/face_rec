@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Emosi - CNN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistem Deteksi Emosi</h1>
+            <p>Menggunakan Convolutional Neural Network (CNN)</p>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+            </div>
+
+            <div class="emotion-info">
+                <h2>Informasi Emosi</h2>
+                <div class="emotion-list">
+                    <div class="emotion-item">
+                        <span class="emotion-label">Marah</span>
+                        <div class="emotion-bar" id="angry-bar"></div>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Jijik</span>
+                        <div class="emotion-bar" id="disgust-bar"></div>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Takut</span>
+                        <div class="emotion-bar" id="fear-bar"></div>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Senang</span>
+                        <div class="emotion-bar" id="happy-bar"></div>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Sedih</span>
+                        <div class="emotion-bar" id="sad-bar"></div>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Terkejut</span>
+                        <div class="emotion-bar" id="surprise-bar"></div>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Netral</span>
+                        <div class="emotion-bar" id="neutral-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

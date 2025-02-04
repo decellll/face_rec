@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Deteksi Emosi - CNN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hasil Analisis Emosi</h1>
+            <p>Detail Hasil Deteksi Menggunakan CNN</p>
+        </header>
+
+        <main class="result-container">
+            <div class="result-image">
+                <img src="{{ url_for('static', filename='captures/' + image_name) }}" alt="Captured Image">
+            </div>
+
+            <div class="result-details">
+                <h2>Detail Analisis</h2>
+                <div class="emotion-stats">
+                    <div class="stat-item">
+                        <h3>Emosi Dominan</h3>
+                        <p class="dominant-emotion">{{ dominant_emotion }}</p>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <h3>Tingkat Kepercayaan</h3>
+                        <p class="confidence">{{ confidence }}%</p>
+                    </div>
+
+                    <div class="emotion-breakdown">
+                        <h3>Breakdown Emosi</h3>
+                        <div class="emotion-percentages">
+                            {% for emotion, percentage in emotions.items() %}
+                            <div class="emotion-row">
+                                <span class="emotion-name">{{ emotion }}</span>
+                                <div class="percentage-bar">
+                                    <div class="bar" style="width: {{ percentage }}%"></div>
+                                </div>
+                                <span class="percentage-value">{{ percentage }}%</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation">
+                    <h3>Rekomendasi</h3>
+                    <p>{{ recommendation }}</p>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="/" class="btn btn-primary">Ambil Gambar Baru</a>
+                    <button class="btn btn-secondary" onclick="window.print()">Cetak Hasil</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

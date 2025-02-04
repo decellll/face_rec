@@ -1,0 +1,12 @@
+# File system
+.DS_Store
+**/.DS_Store
+
+# Folder Python
+__pycache__/
+*.py[cod]
+venv/
+
+# File dataset besar
+*.csv
+*.tiff
